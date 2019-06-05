@@ -1,0 +1,3 @@
+DEBUG tests/b_hashtables_tests.c:36: ----- RUNNING: ./tests/b_hashtables_tests
+DEBUG tests/b_hashtables_tests.c:31: 
+----- basic_hash_table_test
