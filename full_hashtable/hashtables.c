@@ -148,9 +148,11 @@ void hash_table_remove(HashTable *ht, char *key)
       LinkedPair *temp = ht->storage[index];
       while (temp->next)
       {
-        if (strcmp(ht->storage[index]->key, key) == 0)
+        if (strcmp(temp->key, key) == 0)
         {
-          destroy_pair(ht->storage[index]);
+          LinkedPair *current = temp;
+          ht->storage[index] = ht->storage[index]->next;
+          destroy_pair(current);
           break;
         }
         temp = temp->next;
@@ -248,12 +250,15 @@ HashTable *hash_table_resize(HashTable *ht)
   {
     if (ht->storage[i] != NULL)
     {
-      int new_index = hash(ht->storage[i]->key, new_ht->capacity);
-      new_ht->storage[new_index] = ht->storage[i];
+      LinkedPair *temp = ht->storage[i];
+      while (temp)
+      {
+        hash_table_insert(new_ht, temp->key, temp->value);
+        temp = temp->next;
+      }
     }
   }
-  free(ht->storage);
-  free(ht);
+  destroy_hash_table(ht);
 
   return new_ht;
 }
