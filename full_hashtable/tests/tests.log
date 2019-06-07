@@ -1,0 +1,9 @@
+DEBUG tests/hashtables_tests.c:171: ----- RUNNING: ./tests/hashtables_tests
+DEBUG tests/hashtables_tests.c:163: 
+----- test_hash_table_insertion_and_retrieval
+DEBUG tests/hashtables_tests.c:164: 
+----- test_hash_table_insertion_overwrites_correctly
+DEBUG tests/hashtables_tests.c:165: 
+----- test_hash_table_removes_correctly
+DEBUG tests/hashtables_tests.c:166: 
+----- hash_table_resizing_test
